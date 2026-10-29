@@ -1,0 +1,12 @@
+version: '3.8'
+
+services:
+  agent-workspace:
+    build: .
+    volumes:
+      - ./projects:/workspace/projects
+      - ./.ai/memory:/workspace/.ai/memory
+    environment:
+      - CLOUDFLARE_API_TOKEN=${CLOUDFLARE_API_TOKEN}
+      - GITHUB_TOKEN=${GITHUB_TOKEN}
+    command: ["doctor"]

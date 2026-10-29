@@ -9,6 +9,43 @@ UANDA 2026 is an evidence-backed, modular architecture engineered to operate sea
 3. **Capabilities Before Agents**: Always prefer a deterministic script or single reusable skill over an autonomous subagent.
 4. **Drift Detection & Architecture Validation**: Built-in CLI scripts to prevent instruction drift, broken references, and orphaned files.
 
+
+## 🚀 Installation & Distribution Methods
+
+Choose your preferred way to install and use `agent-folders`:
+
+### Method 1: Instant npx / npm CLI (Recommended)
+```bash
+# Initialize into your current project directory:
+npx agent-folders init
+
+# Run system health doctor:
+npx agent-folders doctor
+
+# Scaffold any project archetype:
+npx agent-folders scaffold full-stack-app my-saas
+```
+
+### Method 2: One-Line Shell / cURL Installer
+```bash
+curl -fsSL https://raw.githubusercontent.com/rjbizsolution23-wq/agent-folders/main/install.sh | bash
+```
+
+### Method 3: GitHub 1-Click Template
+Click **[Use this template](https://github.com/rjbizsolution23-wq/agent-folders/generate)** on GitHub to create a new repository instantly.
+
+### Method 4: Python pip
+```bash
+pip install git+https://github.com/rjbizsolution23-wq/agent-folders.git
+agent-folders doctor
+```
+
+### Method 5: Docker Sandbox
+```bash
+docker build -t agent-folders .
+docker run --rm agent-folders doctor
+```
+
 ## Quickstart
 ```bash
 # 1. Validate repository structure and token budgets

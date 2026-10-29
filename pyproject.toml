@@ -1,0 +1,26 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "agent-folders"
+version = "1.0.0"
+authors = [
+  { name="Rick Jefferson", email="support@rjbusinesssolutions.org" },
+]
+description = "Universal AI-Native Folder & Agent Architecture CLI"
+readme = "README.md"
+requires-python = ">=3.9"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: Apache Software License",
+    "Operating System :: OS Independent",
+]
+keywords = ["ai-agents", "claude-code", "cursor", "codex", "gemini", "uanda"]
+
+[project.urls]
+"Homepage" = "https://github.com/rjbizsolution23-wq/agent-folders"
+"Bug Tracker" = "https://github.com/rjbizsolution23-wq/agent-folders/issues"
+
+[project.scripts]
+agent-folders = "agent_folders.cli:main"

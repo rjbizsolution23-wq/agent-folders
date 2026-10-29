@@ -1,0 +1,16 @@
+# Version Control & OS
+.git/
+.github/
+.DS_Store
+*.log
+
+# Cache & Local State
+node_modules/
+__pycache__/
+*.pyc
+tests/
+projects/test-*
+.env*
+**/__pycache__/**
+**/*.pyc
+**/*.pyo
