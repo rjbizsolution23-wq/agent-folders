@@ -1,0 +1,20 @@
+name = "agent-folders-email-engine"
+main = "src/index.ts"
+compatibility_date = "2026-10-28"
+compatibility_flags = ["nodejs_compat"]
+
+# D1 Serverless SQLite Database Binding
+[[d1_databases]]
+binding = "DB"
+database_name = "agent_folders_db"
+database_id = "agent_folders_db_placeholder"
+
+# Cron Trigger: Evaluates due drip emails every hour
+[triggers]
+crons = ["0 * * * *"]
+
+[vars]
+APP_URL = "https://agent-folders.rjbusinesssolutions.org"
+
+[observability]
+enabled = true
