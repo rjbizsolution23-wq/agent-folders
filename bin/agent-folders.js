@@ -101,6 +101,17 @@ switch (command) {
     }
     break;
 
+  case 'support':
+  case 'helpdesk':
+    const supportScript = path.join(repoRoot, 'scripts', 'support-oracle.py');
+    const queryArgs = args.slice(1).map(a => `"${a}"`).join(' ');
+    try {
+      execSync(`python3 "${supportScript}" ${queryArgs}`, { stdio: 'inherit' });
+    } catch (e) {
+      process.exit(0);
+    }
+    break;
+
   case 'help':
   default:
     console.log('Usage: npx agent-folders <command>\n');
