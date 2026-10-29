@@ -1,0 +1,42 @@
+schema_version: "2.0"
+system:
+  name: "universal-ai-system"
+  architecture: "modular-canonical"
+  version: "2026.1"
+  maintainer: "RJ Business Solutions"
+
+canonical:
+  policies: ".ai/policies/"
+  context: ".ai/context/"
+  skills: ".ai/skills/"
+  workflows: ".ai/workflows/"
+  templates: ".ai/templates/"
+  schemas: ".ai/schemas/"
+
+platforms:
+  claude:
+    enabled: true
+    adapter_template: "adapters/claude/CLAUDE.template.md"
+    target_file: "CLAUDE.md"
+  cursor:
+    enabled: true
+    adapter_template: "adapters/cursor/.cursorrules.template"
+    target_file: ".cursorrules"
+  gemini:
+    enabled: true
+    adapter_template: "adapters/gemini/GEMINI.template.md"
+    target_file: "GEMINI.md"
+  codex:
+    enabled: true
+    adapter_template: "adapters/codex/AGENTS.template.md"
+    target_file: "AGENTS.md"
+
+validation:
+  check_instruction_drift: true
+  check_broken_references: true
+  check_skill_contracts: true
+  token_budget_limits:
+    level_0_agents_md: 500
+    level_1_policies: 1200
+    level_2_context: 2000
+    level_3_skills_each: 800

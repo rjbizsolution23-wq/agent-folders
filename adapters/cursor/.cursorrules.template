@@ -1,0 +1,7 @@
+# Cursor Rules — UANDA 2026
+# Generated from canonical .ai/ policies. Do NOT edit directly.
+
+- Follow AGENTS.md for global instructions and progressive context loading.
+- Consult .ai/policies/engineering.md for coding guidelines.
+- Never hardcode credentials; check .ai/policies/security.md.
+- Run tests after every code change.
