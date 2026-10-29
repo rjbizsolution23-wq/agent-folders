@@ -20,5 +20,12 @@
     "uanda"
   ],
   "author": "RJ Business Solutions / Rick Jefferson",
-  "license": "Apache-2.0"
+  "license": "Apache-2.0",
+  "bin": {
+    "agent-folders": "./bin/agent-folders.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/rjbizsolution23-wq/agent-folders.git"
+  }
 }
