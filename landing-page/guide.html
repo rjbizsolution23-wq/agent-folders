@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Operator's Guide & Manual — Universal AI-Native Development Architecture (UANDA 2026)</title>
+  <meta name="description" content="Step-by-step master handbook, CLI commands, progressive context hierarchy, troubleshooting, and customer help for agent-folders.">
+  <link rel="canonical" href="https://agent-folders-email-engine.rickjefferson.workers.dev/guide.html">
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --rj-blue: #2563eb;
+      --rj-sky: #0ea5e9;
+      --rj-deep: #1e3a8a;
+      --rj-navy: #0f172a;
+      --rj-white: #ffffff;
+      --rj-soft: #f8fafc;
+      --rj-light: #eff6ff;
+      --rj-border: #bfdbfe;
+      --rj-line: #e2e8f0;
+      --rj-text: #0f172a;
+      --rj-muted: #475569;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      background-color: var(--rj-soft);
+      color: var(--rj-text);
+      line-height: 1.7;
+    }
+    h1, h2, h3, h4 {
+      font-family: 'Space Grotesk', system-ui, sans-serif;
+      color: var(--rj-navy);
+      letter-spacing: -0.02em;
+    }
+    .container {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+    header {
+      background: #ffffff;
+      border-bottom: 1px solid var(--rj-line);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .nav-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 16px 0;
+    }
+    .logo-box {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      color: var(--rj-navy);
+    }
+    .logo-img {
+      width: 36px;
+      height: 36px;
+      border-radius: 8px;
+      object-fit: cover;
+    }
+    .logo-text { font-size: 16px; font-weight: 700; line-height: 1.2; }
+    .logo-sub { font-size: 11px; color: var(--rj-blue); text-transform: uppercase; font-weight: 600; }
+    .btn-back {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--rj-blue);
+      text-decoration: none;
+      background: var(--rj-light);
+      padding: 8px 16px;
+      border-radius: 6px;
+      border: 1px solid var(--rj-border);
+    }
+    .hero-guide {
+      background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 55%, #2563eb 100%);
+      color: #ffffff;
+      padding: 60px 0;
+      margin-bottom: 40px;
+    }
+    .hero-guide h1 {
+      color: #ffffff;
+      font-size: 38px;
+      margin-bottom: 12px;
+    }
+    .hero-guide p {
+      color: #e2e8f0;
+      font-size: 16px;
+      max-width: 750px;
+    }
+    .content-card {
+      background: #ffffff;
+      border: 1px solid var(--rj-line);
+      border-radius: 12px;
+      padding: 36px;
+      margin-bottom: 32px;
+      box-shadow: 0 4px 6px -1px rgba(0,0,0,0.03);
+    }
+    .badge {
+      display: inline-block;
+      background: var(--rj-light);
+      color: var(--rj-blue);
+      border: 1px solid var(--rj-border);
+      padding: 4px 10px;
+      border-radius: 999px;
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+    h2 { font-size: 24px; margin-bottom: 16px; border-bottom: 2px solid var(--rj-light); padding-bottom: 8px; }
+    h3 { font-size: 18px; margin: 20px 0 10px; }
+    p { margin-bottom: 14px; font-size: 15px; color: #334155; }
+    ul, ol { margin-left: 24px; margin-bottom: 16px; font-size: 14px; color: #334155; }
+    li { margin-bottom: 8px; }
+    pre {
+      background: #0f172a;
+      color: #38bdf8;
+      padding: 16px;
+      border-radius: 8px;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+      font-size: 13px;
+      overflow-x: auto;
+      margin-bottom: 16px;
+    }
+    code {
+      background: #f1f5f9;
+      color: var(--rj-blue);
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+      font-size: 13px;
+    }
+    pre code { background: transparent; color: inherit; padding: 0; }
+    .alert-box {
+      background: #eff6ff;
+      border-left: 4px solid var(--rj-blue);
+      padding: 16px 20px;
+      border-radius: 0 8px 8px 0;
+      margin: 20px 0;
+      font-size: 14px;
+    }
+    .table-wrap { overflow-x: auto; margin-bottom: 20px; }
+    table { width: 100%; border-collapse: collapse; font-size: 13px; }
+    th, td { border: 1px solid var(--rj-line); padding: 10px 14px; text-align: left; }
+    th { background: #f8fafc; font-weight: 700; color: var(--rj-navy); }
+    footer {
+      background: var(--rj-navy);
+      color: #94a3b8;
+      padding: 40px 0;
+      text-align: center;
+      font-size: 13px;
+      margin-top: 60px;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="container nav-inner">
+      <a href="/" class="logo-box">
+        <img src="https://storage.googleapis.com/msgsndr/qQnxRHDtyx0uydPd5sRl/media/67eb83c5e519ed689430646b.jpeg" alt="RJ Business Solutions" class="logo-img">
+        <div>
+          <div class="logo-text">RJ Business Solutions</div>
+          <div class="logo-sub">Operator's Manual</div>
+        </div>
+      </a>
+      <a href="/" class="btn-back">← Back to Overview</a>
+    </div>
+  </header>
+
+  <div class="hero-guide">
+    <div class="container">
+      <span class="badge" style="background: rgba(255,255,255,0.15); color: #fff; border-color: rgba(255,255,255,0.3);">Official Handbook • v2026.1</span>
+      <h1>Operator's Guide, User Manual & Help Center</h1>
+      <p>Complete step-by-step instructions on setting up, using, and troubleshooting your Universal AI-Native Development Architecture across Cursor, Claude Code, and Codex.</p>
+    </div>
+  </div>
+
+  <div class="container">
+
+    <!-- Section 1 -->
+    <div class="content-card">
+      <span class="badge">Chapter 1</span>
+      <h2>60-Second Quickstart Guide</h2>
+      <p>You can bootstrap the <code>agent-folders</code> system into any new or existing project in seconds. Choose the method that best matches your workflow:</p>
+      
+      <h3>Method A: npx Initialization (Recommended)</h3>
+      <p>Open your terminal, navigate to your target project folder, and run:</p>
+      <pre><code># 1. Initialize canonical folders, policies, and adapters:
+npx agent-folders init
+
+# 2. Run system health & token budget check:
+npx agent-folders doctor
+
+# 3. Scaffold your first application:
+npx agent-folders scaffold full-stack-app client-portal</code></pre>
+
+      <h3>Method B: One-Line Shell / cURL Installer</h3>
+      <p>If you don't have Node or npm globally installed, run this single shell command:</p>
+      <pre><code>curl -fsSL https://raw.githubusercontent.com/rjbizsolution23-wq/agent-folders/main/install.sh | bash</code></pre>
+
+      <h3>Method C: GitHub 1-Click Template</h3>
+      <p>Click <a href="https://github.com/rjbizsolution23-wq/agent-folders/generate" target="_blank" style="color: var(--rj-blue); font-weight: 600;">Use this template</a> on GitHub to spawn an immediate clean repository under your own account.</p>
+    </div>
+
+    <!-- Section 2 -->
+    <div class="content-card">
+      <span class="badge">Chapter 2</span>
+      <h2>The 6-Level Progressive Context Protocol</h2>
+      <p>The single most important principle in <code>agent-folders</code> is <strong>Progressive Context Disclosure</strong>. When you instruct an AI coding agent, never ask it to "read the entire repository." Doing so pollutes the context window and triggers hallucinated code.</p>
+
+      <div class="alert-box">
+        <strong>The Golden Rule:</strong> AI agents start by reading only Level 0 (<code>AGENTS.md</code>, sub-300 tokens). They read deeper levels only when their specific task requires it.
+      </div>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Level</th>
+              <th>Artifact / Path</th>
+              <th>Token Size</th>
+              <th>When to Load</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Level 0</strong></td>
+              <td><code>AGENTS.md</code></td>
+              <td>~287 tokens</td>
+              <td><strong>Every session start.</strong> Acts as the navigational compass.</td>
+            </tr>
+            <tr>
+              <td><strong>Level 1</strong></td>
+              <td><code>.ai/policies/*.md</code></td>
+              <td>~200 tokens each</td>
+              <td><strong>On-demand:</strong> Read <code>engineering.md</code> before writing code, <code>security.md</code> before modifying auth, <code>testing.md</code> before writing tests.</td>
+            </tr>
+            <tr>
+              <td><strong>Level 2</strong></td>
+              <td><code>.ai/context/*.md</code></td>
+              <td>~500 tokens</td>
+              <td><strong>During architecture planning</strong> or cross-module refactoring.</td>
+            </tr>
+            <tr>
+              <td><strong>Level 3</strong></td>
+              <td><code>.ai/skills/&lt;name&gt;/SKILL.md</code></td>
+              <td>~400 tokens</td>
+              <td><strong>On trigger:</strong> Load <code>debugging</code> when tests fail, <code>planning</code> when starting a multi-file feature.</td>
+            </tr>
+            <tr>
+              <td><strong>Level 4</strong></td>
+              <td><code>projects/&lt;app&gt;/src/*</code></td>
+              <td>Variable</td>
+              <td><strong>Surgical target files:</strong> Only the specific files being modified.</td>
+            </tr>
+            <tr>
+              <td><strong>Level 5</strong></td>
+              <td><code>.ai/context/decisions-log.md</code></td>
+              <td>~300 tokens</td>
+              <td><strong>Historical edge cases:</strong> Consulted only when resolving past architectural ambiguities.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Section 3 -->
+    <div class="content-card">
+      <span class="badge">Chapter 3</span>
+      <h2>Tool Configuration: Cursor, Claude Code, and Codex</h2>
+      
+      <h3>1. Using in Cursor IDE</h3>
+      <p>Cursor automatically recognizes <code>.cursorrules</code> at the root of the project. The <code>.cursorrules</code> file directs Cursor to obey <code>AGENTS.md</code> and load rules from <code>.ai/policies/</code>.</p>
+      <p><strong>Pro-Tip:</strong> In Cursor Chat composer (Cmd+I / Cmd+L), you can directly tag specific policies: <code>@.ai/policies/engineering.md implement user authentication</code>.</p>
+
+      <h3>2. Using in Anthropic Claude Code</h3>
+      <p>Claude Code automatically reads <code>CLAUDE.md</code> in your terminal. To invoke a specific skill with Claude Code, simply prompt:</p>
+      <pre><code>Claude, activate .ai/skills/planning/SKILL.md to plan the database migration.</code></pre>
+
+      <h3>3. Synchronizing Rules (Zero Drift)</h3>
+      <p>Whenever you update an engineering or security rule in <code>.ai/policies/</code>, run:</p>
+      <pre><code>npx agent-folders sync</code></pre>
+      <p>This automatically regenerates <code>CLAUDE.md</code>, <code>.cursorrules</code>, and <code>GEMINI.md</code> so all AI tools follow the exact same standards.</p>
+    </div>
+
+    <!-- Section 4 -->
+    <div class="content-card">
+      <span class="badge">Chapter 4</span>
+      <h2>Built-in Terminal Help & Diagnostic Oracle</h2>
+      <p>You never have to search external documentation when stuck. <code>agent-folders</code> includes an interactive customer helpdesk built right into your CLI:</p>
+
+      <pre><code># Quick lookup on any topic:
+npx agent-folders support tokens
+npx agent-folders support cloudflare
+npx agent-folders support cursor
+npx agent-folders support scaffold
+
+# Or launch the interactive guided Q&A wizard:
+npx agent-folders support</code></pre>
+
+      <p>Running <code>npx agent-folders doctor</code> executes a 5-point automated health inspection checking for missing canonical files, broken internal markdown links, and token budget overages.</p>
+    </div>
+
+    <!-- Section 5 -->
+    <div class="content-card">
+      <span class="badge">Chapter 5</span>
+      <h2>Troubleshooting & FAQ</h2>
+      
+      <h3>Q: What if an agent ignores my coding rules?</h3>
+      <p><strong>A:</strong> Run <code>npx agent-folders sync</code> to verify your platform adapters match <code>.ai/policies/</code>. Then instruct the agent explicitly: <em>"Read .ai/policies/engineering.md before writing code."</em></p>
+
+      <h3>Q: Can I use this for non-TypeScript languages?</h3>
+      <p><strong>A:</strong> Yes. <code>agent-folders</code> is 100% language-agnostic. The policies, skills, context disclosure ladder, and adapters work identically for Python, Go, Rust, Java, or PHP.</p>
+
+      <h3>Q: How do I get priority support?</h3>
+      <p><strong>A:</strong> If you are a Pro or Agency customer, email <a href="mailto:support@rjbusinesssolutions.org" style="color: var(--rj-blue); font-weight: 600;">support@rjbusinesssolutions.org</a> with the subject <code>[PRO LICENSE] Support Request</code> for 24-hour SLA responses.</p>
+    </div>
+
+  </div>
+
+  <footer>
+    <div class="container">
+      <p style="margin-bottom: 8px;">&copy; 2026 RJ Business Solutions. 1342 NM 333, Tijeras, New Mexico 87059.</p>
+      <p style="font-size: 11px; color: #64748b;">Universal AI-Native Development Architecture (UANDA). All rights reserved.</p>
+    </div>
+  </footer>
+
+</body>
+</html>
