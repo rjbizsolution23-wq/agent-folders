@@ -635,7 +635,7 @@
       <div class="features-grid">
         <div class="feat-card">
           <div class="feat-icon">🔌</div>
-          <h3>Model Context Protocol Hub</h3>
+          <h3 id="mcp">Model Context Protocol Hub</h3>
           <p>Pre-configured MCP server bindings for local filesystem sandboxing, Cloudflare edge services, GitHub branch automation, and headless browser testing.</p>
         </div>
         <div class="feat-card">
@@ -645,7 +645,7 @@
         </div>
         <div class="feat-card">
           <div class="feat-icon">⚡</div>
-          <h3>Cloudflare Edge Deployer</h3>
+          <h3 id="deployer">Cloudflare Edge Deployer</h3>
           <p>Single-command bash deployment script to package and push any scaffolded microservice straight to Cloudflare Workers edge network.</p>
         </div>
         <div class="feat-card">
@@ -655,7 +655,7 @@
         </div>
         <div class="feat-card">
           <div class="feat-icon">🎧</div>
-          <h3>Terminal Support Oracle</h3>
+          <h3 id="adapters">Platform Adapters & Support Oracle</h3>
           <p>Built-in interactive customer support wizard (<code>npx agent-folders support</code>) giving developers instant guided answers in their shell.</p>
         </div>
         <div class="feat-card">
@@ -707,7 +707,7 @@
             <li>✓ Cloudflare 1-Click Deployer</li>
             <li>✓ Lifetime Updates</li>
           </ul>
-          <a href="https://rjbusinesssolutions.org" target="_blank" class="btn-plan btn-plan-solid">Get Pro Developer</a>
+          <a href="#order-instructions" class="btn-plan btn-plan-solid">Get Pro Developer ($97)</a>
         </div>
 
         <!-- Agency / Team -->
@@ -723,7 +723,7 @@
             <li>✓ Priority Engineering Support</li>
             <li>✓ Custom Adapter Generator</li>
           </ul>
-          <a href="https://rjbusinesssolutions.org" target="_blank" class="btn-plan btn-plan-outline">Get Agency License</a>
+          <a href="#order-instructions" class="btn-plan btn-plan-outline">Get Agency License ($497)</a>
         </div>
 
         <!-- Enterprise -->
@@ -739,6 +739,44 @@
             <li>✓ 1-on-1 with Rick Jefferson, CEO</li>
           </ul>
           <a href="mailto:support@rjbusinesssolutions.org?subject=Enterprise%20Agent-Folders%20Consultation" class="btn-plan btn-plan-outline">Contact Architect</a>
+        </div>
+      </div>
+
+      
+      <!-- Order Instructions / Direct Checkout Section -->
+      <div id="order-instructions" style="background: #ffffff; border: 2px solid var(--rj-blue); border-radius: 14px; padding: 32px; margin-top: 40px; box-shadow: 0 10px 25px -5px rgba(37, 99, 235, 0.1);">
+        <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 16px;">
+          <span style="background: var(--rj-light); color: var(--rj-blue); padding: 6px 12px; border-radius: 999px; font-weight: 700; font-size: 12px; text-transform: uppercase;">Instant License Activation</span>
+          <h3 style="font-size: 22px; color: var(--rj-navy); margin: 0;">How to Get Your Pro or Agency License Instantly</h3>
+        </div>
+        <p style="color: var(--rj-muted); font-size: 14px; line-height: 1.6; margin-bottom: 20px;">
+          Choose your preferred secure payment method below. All licenses include instant GitHub repository access, lifetime updates, and our 30-day money-back guarantee.
+        </p>
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 24px;">
+          <div style="background: var(--rj-soft); border: 1px solid var(--rj-line); border-radius: 10px; padding: 20px;">
+            <h4 style="color: var(--rj-navy); font-size: 16px; margin-bottom: 8px;">Option 1: Instant Zelle Payment (0% Fees)</h4>
+            <p style="font-size: 13px; color: var(--rj-muted); margin-bottom: 12px;">Send payment to our official business Zelle:</p>
+            <div style="font-family: monospace; font-size: 15px; font-weight: 700; color: var(--rj-blue); background: #ffffff; padding: 8px 12px; border-radius: 6px; border: 1px solid var(--rj-border); display: inline-block;">
+              rjbizsolution23@gmail.com
+            </div>
+            <p style="font-size: 12px; color: var(--rj-muted); margin-top: 10px;">
+              <strong>Pro Developer:</strong> $97 | <strong>Agency License:</strong> $497<br>
+              <em>Memo: [Your Name] + [Your Email] + Agent-Folders</em>
+            </p>
+          </div>
+          <div style="background: var(--rj-soft); border: 1px solid var(--rj-line); border-radius: 10px; padding: 20px;">
+            <h4 style="color: var(--rj-navy); font-size: 16px; margin-bottom: 8px;">Option 2: Domestic & International Bank Wire</h4>
+            <p style="font-size: 13px; color: var(--rj-muted); margin-bottom: 12px;">For Agency ($497) & Enterprise ($2,500+) tiers:</p>
+            <div style="font-size: 13px; color: var(--rj-navy); line-height: 1.5;">
+              <strong>Bank:</strong> Wells Fargo N.A.<br>
+              <strong>Routing (ABA):</strong> <span style="font-family: monospace; font-weight: 700; color: var(--rj-blue);">121000248</span><br>
+              <strong>Account Name:</strong> RJ Business Solutions<br>
+              <strong>Address:</strong> 1342 NM 333, Tijeras, New Mexico 87059
+            </div>
+          </div>
+        </div>
+        <div style="margin-top: 20px; text-align: center; font-size: 13px; color: var(--rj-muted);">
+          Questions or credit card checkout? Email <a href="mailto:support@rjbusinesssolutions.org?subject=Agent-Folders%20Checkout%20Assistance" style="color: var(--rj-blue); font-weight: 600;">support@rjbusinesssolutions.org</a> or call our team for white-glove onboarding.
         </div>
       </div>
 
@@ -790,6 +828,23 @@
     </div>
   </section>
 
+  
+  <!-- Compliance & Legal Statements Modal/Card -->
+  <div id="legal-terms" style="background: #ffffff; border-top: 1px solid var(--rj-line); padding: 40px 0;">
+    <div class="container" style="font-size: 12px; color: var(--rj-muted); line-height: 1.7;">
+      <h4 style="font-size: 14px; color: var(--rj-navy); margin-bottom: 8px;">Compliance, Licensing & Legal Disclaimers</h4>
+      <p style="margin-bottom: 8px;">
+        <strong>CROA & Financial Compliance Notice:</strong> RJ Business Solutions provides developer software, autonomous workflow architecture, and developer automation tools. RJ Business Solutions is not a credit repair organization, financial advisory, or law firm, and does not provide legal, financial, or direct consumer credit repair services. No statements on this website or in documentation constitute financial guarantees or score increase promises.
+      </p>
+      <p style="margin-bottom: 8px;">
+        <strong>Open Core Software License:</strong> The core UANDA workspace and scaffolding scripts are licensed under the Apache License, Version 2.0. Pro and Agency additions, including proprietary agent skills and enterprise compliance validators, are subject to commercial licensing terms provided upon purchase.
+      </p>
+      <p>
+        <strong>Data Security & Privacy:</strong> All local execution remains 100% on the operator's machine or self-hosted Cloudflare edge. agent-folders does not transmit codebase data, proprietary prompt logic, or credentials to external tracking servers.
+      </p>
+    </div>
+  </div>
+
   <!-- Executive Footer -->
   <footer>
     <div class="container">
@@ -808,10 +863,10 @@
         <div class="footer-col">
           <h4>Architecture</h4>
           <ul>
-            <li><a href="#features">Progressive Context</a></li>
-            <li><a href="#features">Model Context Protocol</a></li>
-            <li><a href="#features">Platform Adapters</a></li>
-            <li><a href="#features">Cloudflare Deployer</a></li>
+            <li><a href="#comparison">Progressive Context</a></li>
+            <li><a href="#mcp">Model Context Protocol</a></li>
+            <li><a href="#adapters">Platform Adapters</a></li>
+            <li><a href="#deployer">Cloudflare Deployer</a></li>
           </ul>
         </div>
         <div class="footer-col">
