@@ -1,0 +1,847 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- Primary SEO -->
+  <title>Agent-Folders — Universal AI-Native Development Architecture for Claude, Cursor & Codex</title>
+  <meta name="description" content="The definitive cross-platform folder architecture for AI coding agents. Slash LLM token burn by 70%, eliminate agent amnesia, and run Claude Code, Cursor, Codex, and Gemini from one canonical codebase.">
+  <meta name="keywords" content="AI coding agents, Cursor rules, CLAUDE.md, AGENTS.md, AI repo architecture, context engineering, Model Context Protocol, token optimization, prompt engineering, RJ Business Solutions">
+  <link rel="canonical" href="https://rjbusinesssolutions.org/agent-folders">
+  
+  <!-- OpenGraph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://rjbusinesssolutions.org/agent-folders">
+  <meta property="og:title" content="Agent-Folders — The Universal AI-Native Development Operating System">
+  <meta property="og:description" content="Stop prompt drift and agent hallucinations. One canonical source of truth for Claude Code, Cursor IDE, OpenAI Codex, and Gemini CLI.">
+  <meta property="og:image" content="https://storage.googleapis.com/msgsndr/qQnxRHDtyx0uydPd5sRl/media/67eb83c5e519ed689430646b.jpeg">
+
+  <!-- Twitter / X -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:creator" content="@ricksolutions1">
+  <meta name="twitter:title" content="Agent-Folders — Universal AI Architecture">
+  <meta name="twitter:description" content="Cut token costs by 70% and structure your repos for AI coding agents. Verified architecture by RJ Business Solutions.">
+  <meta name="twitter:image" content="https://storage.googleapis.com/msgsndr/qQnxRHDtyx0uydPd5sRl/media/67eb83c5e519ed689430646b.jpeg">
+
+  <!-- AEO & SGE Schema.org Rich Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "SoftwareApplication",
+        "name": "agent-folders",
+        "operatingSystem": "Cross-platform (macOS, Linux, Windows)",
+        "applicationCategory": "DeveloperApplication",
+        "offers": {
+          "@type": "AggregateOffer",
+          "priceCurrency": "USD",
+          "lowPrice": "0",
+          "highPrice": "497"
+        },
+        "description": "Universal AI-Native folder, file, and agent architecture for Claude Code, Cursor, OpenAI Codex, and Gemini CLI.",
+        "creator": {
+          "@type": "Organization",
+          "name": "RJ Business Solutions",
+          "url": "https://rjbusinesssolutions.org"
+        }
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "How does agent-folders stop AI coding agents from burning tokens?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "agent-folders implements a 6-Level Progressive Context Disclosure Protocol where agents load a sub-300-token root pointer (AGENTS.md) at session start, and only ingest specific policies, architecture specs, or modular skills on-demand when explicitly triggered. This prevents context window saturation and slashes token consumption by 70%."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Does agent-folders work across both Claude Code and Cursor IDE simultaneously?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. agent-folders maintains one canonical source of truth in the .ai/ directory and automatically synchronizes thin platform adapters (CLAUDE.md for Claude Code, .cursorrules for Cursor, and GEMINI.md for Gemini) via an automated sync CLI script."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How do I install agent-folders into an existing project?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Run 'npx agent-folders init' in your project root, or use 'curl -fsSL https://raw.githubusercontent.com/rjbizsolution23-wq/agent-folders/main/install.sh | bash'. It injects canonical policies and adapters without touching your existing code."
+            }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+
+  <!-- Typography -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --rj-blue: #2563eb;
+      --rj-sky: #0ea5e9;
+      --rj-deep: #1e3a8a;
+      --rj-navy: #0f172a;
+      --rj-white: #ffffff;
+      --rj-soft: #f8fafc;
+      --rj-light: #eff6ff;
+      --rj-border: #bfdbfe;
+      --rj-line: #e2e8f0;
+      --rj-text: #0f172a;
+      --rj-muted: #475569;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      background-color: var(--rj-soft);
+      color: var(--rj-text);
+      line-height: 1.6;
+    }
+    h1, h2, h3, h4, .brand-font {
+      font-family: 'Space Grotesk', system-ui, sans-serif;
+      letter-spacing: -0.02em;
+    }
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+    
+    /* Executive Header */
+    header {
+      background: #ffffff;
+      border-bottom: 1px solid var(--rj-line);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .nav-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 16px 0;
+    }
+    .logo-box {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      color: var(--rj-navy);
+    }
+    .logo-img {
+      width: 40px;
+      height: 40px;
+      border-radius: 8px;
+      object-fit: cover;
+    }
+    .logo-text {
+      font-size: 18px;
+      font-weight: 700;
+      line-height: 1.2;
+    }
+    .logo-sub {
+      font-size: 11px;
+      color: var(--rj-blue);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      font-weight: 600;
+    }
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+    }
+    .nav-link {
+      text-decoration: none;
+      color: var(--rj-muted);
+      font-weight: 500;
+      font-size: 14px;
+      transition: color 0.2s;
+    }
+    .nav-link:hover { color: var(--rj-blue); }
+    .btn-nav {
+      background: var(--rj-blue);
+      color: #ffffff;
+      padding: 10px 20px;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 14px;
+      text-decoration: none;
+      transition: background 0.2s;
+    }
+    .btn-nav:hover { background: var(--rj-deep); }
+
+    /* Dark Hero Banner */
+    .hero-section {
+      background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 55%, #2563eb 100%);
+      color: #ffffff;
+      padding: 80px 0 100px;
+      position: relative;
+      overflow: hidden;
+    }
+    .badge-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(255, 255, 255, 0.12);
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      padding: 6px 14px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      margin-bottom: 24px;
+    }
+    .hero-title {
+      font-size: 52px;
+      line-height: 1.1;
+      font-weight: 700;
+      margin-bottom: 24px;
+      max-width: 900px;
+    }
+    .hero-title span {
+      background: linear-gradient(135deg, #60a5fa 0%, #38bdf8 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .hero-subtitle {
+      font-size: 20px;
+      color: #e2e8f0;
+      max-width: 750px;
+      margin-bottom: 40px;
+      line-height: 1.5;
+    }
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      align-items: center;
+      margin-bottom: 48px;
+    }
+    .btn-primary {
+      background: linear-gradient(135deg, #2563eb 0%, #0ea5e9 100%);
+      color: #ffffff;
+      padding: 16px 32px;
+      border-radius: 10px;
+      font-weight: 700;
+      font-size: 16px;
+      text-decoration: none;
+      box-shadow: 0 10px 25px -5px rgba(37, 99, 235, 0.4);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 15px 30px -5px rgba(37, 99, 235, 0.6);
+    }
+    .btn-secondary {
+      background: rgba(255, 255, 255, 0.1);
+      color: #ffffff;
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      padding: 16px 28px;
+      border-radius: 10px;
+      font-weight: 600;
+      font-size: 16px;
+      text-decoration: none;
+      transition: background 0.2s;
+    }
+    .btn-secondary:hover { background: rgba(255, 255, 255, 0.2); }
+
+    /* Terminal Simulator */
+    .terminal-box {
+      background: #090d16;
+      border: 1px solid #1e293b;
+      border-radius: 12px;
+      padding: 24px;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+      color: #38bdf8;
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+      max-width: 850px;
+    }
+    .term-header {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 16px;
+      border-bottom: 1px solid #1e293b;
+      padding-bottom: 12px;
+    }
+    .term-dot { width: 12px; height: 12px; border-radius: 50%; }
+    .dot-red { background: #ef4444; }
+    .dot-yellow { background: #f59e0b; }
+    .dot-green { background: #10b981; }
+    .term-cmd { color: #f8fafc; font-weight: 600; }
+    .term-success { color: #34d399; }
+    .term-muted { color: #64748b; }
+
+    /* Comparison Section */
+    .section-py { padding: 90px 0; }
+    .section-head {
+      text-align: center;
+      max-width: 700px;
+      margin: 0 auto 60px;
+    }
+    .pill-label {
+      background: var(--rj-light);
+      color: var(--rj-blue);
+      border: 1px solid var(--rj-border);
+      padding: 6px 14px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      display: inline-block;
+      margin-bottom: 16px;
+    }
+    .section-head h2 { font-size: 38px; color: var(--rj-navy); margin-bottom: 16px; }
+    .section-head p { color: var(--rj-muted); font-size: 18px; }
+
+    .comparison-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 32px;
+    }
+    .comp-card {
+      background: #ffffff;
+      border-radius: 14px;
+      padding: 36px;
+      box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
+      border: 1px solid var(--rj-line);
+    }
+    .comp-bad { border-top: 4px solid #ef4444; }
+    .comp-good { border-top: 4px solid var(--rj-blue); position: relative; }
+    .comp-badge {
+      position: absolute;
+      top: -12px;
+      right: 24px;
+      background: var(--rj-blue);
+      color: #fff;
+      font-size: 11px;
+      font-weight: 700;
+      padding: 4px 10px;
+      border-radius: 999px;
+      text-transform: uppercase;
+    }
+    .comp-title { font-size: 22px; font-weight: 700; margin-bottom: 20px; }
+    .comp-list { list-style: none; display: flex; flex-direction: column; gap: 14px; }
+    .comp-list li { display: flex; align-items: flex-start; gap: 12px; font-size: 15px; color: var(--rj-text); }
+
+    /* Features Grid */
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+    }
+    .feat-card {
+      background: #ffffff;
+      border: 1px solid var(--rj-line);
+      border-radius: 12px;
+      padding: 28px;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .feat-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 24px -6px rgba(0,0,0,0.08);
+      border-color: var(--rj-border);
+    }
+    .feat-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 10px;
+      background: var(--rj-light);
+      color: var(--rj-blue);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+      margin-bottom: 20px;
+    }
+    .feat-card h3 { font-size: 20px; margin-bottom: 12px; color: var(--rj-navy); }
+    .feat-card p { color: var(--rj-muted); font-size: 14px; line-height: 1.6; }
+
+    /* Pricing Section */
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+      margin-top: 40px;
+    }
+    .price-card {
+      background: #ffffff;
+      border: 1px solid var(--rj-line);
+      border-radius: 14px;
+      padding: 32px 24px;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+    }
+    .price-card.featured {
+      border: 2px solid var(--rj-blue);
+      box-shadow: 0 16px 32px -8px rgba(37, 99, 235, 0.2);
+    }
+    .card-popular {
+      position: absolute;
+      top: -12px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--rj-blue);
+      color: #fff;
+      font-size: 11px;
+      font-weight: 700;
+      padding: 4px 12px;
+      border-radius: 999px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .plan-name { font-size: 18px; font-weight: 700; color: var(--rj-navy); margin-bottom: 8px; }
+    .plan-desc { font-size: 13px; color: var(--rj-muted); margin-bottom: 20px; min-height: 40px; }
+    .plan-price { font-size: 36px; font-weight: 700; color: var(--rj-navy); margin-bottom: 4px; }
+    .plan-price span { font-size: 14px; color: var(--rj-muted); font-weight: 400; }
+    .plan-features { list-style: none; margin: 24px 0; display: flex; flex-direction: column; gap: 12px; flex-grow: 1; }
+    .plan-features li { font-size: 13px; color: var(--rj-text); display: flex; gap: 8px; }
+    .btn-plan {
+      display: block;
+      text-align: center;
+      padding: 12px;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 14px;
+      text-decoration: none;
+      transition: background 0.2s;
+    }
+    .btn-plan-outline { border: 1px solid var(--rj-border); color: var(--rj-blue); background: var(--rj-light); }
+    .btn-plan-outline:hover { background: #dbeafe; }
+    .btn-plan-solid { background: var(--rj-blue); color: #fff; }
+    .btn-plan-solid:hover { background: var(--rj-deep); }
+
+    /* Payment & Direct Wire Card */
+    .wire-box {
+      background: #ffffff;
+      border: 1px solid var(--rj-border);
+      border-radius: 12px;
+      padding: 24px;
+      margin-top: 48px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+    }
+    .wire-col h4 { font-size: 16px; color: var(--rj-navy); margin-bottom: 8px; }
+    .wire-col p { font-size: 13px; color: var(--rj-muted); }
+    .wire-val { font-family: monospace; font-size: 14px; font-weight: 700; color: var(--rj-blue); }
+
+    /* FAQ Section */
+    .faq-list {
+      max-width: 800px;
+      margin: 40px auto 0;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .faq-item {
+      background: #ffffff;
+      border: 1px solid var(--rj-line);
+      border-radius: 10px;
+      padding: 20px 24px;
+    }
+    .faq-item h3 { font-size: 18px; color: var(--rj-navy); margin-bottom: 8px; }
+    .faq-item p { font-size: 14px; color: var(--rj-muted); line-height: 1.6; }
+
+    /* Executive Footer */
+    footer {
+      background: var(--rj-navy);
+      color: #94a3b8;
+      padding: 70px 0 40px;
+      border-top: 1px solid #1e293b;
+      font-size: 13px;
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 40px;
+      margin-bottom: 50px;
+    }
+    .footer-col h4 { color: #ffffff; font-size: 15px; margin-bottom: 16px; }
+    .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+    .footer-col a { color: #94a3b8; text-decoration: none; transition: color 0.2s; }
+    .footer-col a:hover { color: #38bdf8; }
+    .footer-bottom {
+      border-top: 1px solid #1e293b;
+      padding-top: 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    @media (max-width: 900px) {
+      .hero-title { font-size: 38px; }
+      .comparison-grid, .pricing-grid, .features-grid, .footer-grid, .wire-box { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Executive Header -->
+  <header>
+    <div class="container nav-inner">
+      <a href="https://rjbusinesssolutions.org" class="logo-box">
+        <img src="https://storage.googleapis.com/msgsndr/qQnxRHDtyx0uydPd5sRl/media/67eb83c5e519ed689430646b.jpeg" alt="RJ Business Solutions" class="logo-img">
+        <div>
+          <div class="logo-text">RJ Business Solutions</div>
+          <div class="logo-sub">Autonomous AI Architecture</div>
+        </div>
+      </a>
+      <nav class="nav-links">
+        <a href="#features" class="nav-link">Architecture</a>
+        <a href="#comparison" class="nav-link">Token Savings</a>
+        <a href="#pricing" class="nav-link">Pricing</a>
+        <a href="#faq" class="nav-link">FAQ</a>
+        <a href="https://github.com/rjbizsolution23-wq/agent-folders" target="_blank" class="btn-nav">GitHub Template</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero-section">
+    <div class="container">
+      <div class="badge-pill">⚡ Evidence-Backed AI Repository Standard • 2026.1</div>
+      <h1 class="hero-title">Stop Prompt Drift. Slash Token Burn by 70%. <span>Run Claude, Cursor & Codex from One Repository.</span></h1>
+      <p class="hero-subtitle">The canonical cross-platform architecture engineered for AI coding agents. Replace chaotic instructions with a 6-Level Progressive Context hierarchy that prevents agent amnesia and hallucinated code.</p>
+      
+      <div class="hero-actions">
+        <a href="https://github.com/rjbizsolution23-wq/agent-folders/generate" target="_blank" class="btn-primary">Use Free GitHub Template</a>
+        <a href="#pricing" class="btn-secondary">Get Pro Developer Kit ($97)</a>
+      </div>
+
+      
+      <!-- Cloudflare-Powered Lead Capture Form -->
+      <div style="background: rgba(255, 255, 255, 0.08); border: 1px solid rgba(255, 255, 255, 0.2); border-radius: 12px; padding: 24px; max-width: 600px; margin-bottom: 32px;">
+        <h3 style="color: #ffffff; font-size: 18px; margin-bottom: 8px;">Get the 5-Day Progressive Context Masterclass</h3>
+        <p style="color: #cbd5e1; font-size: 13px; margin-bottom: 16px;">We'll email you the 6-Level Context Cheatsheet & empirical benchmark breakdown.</p>
+        <form id="lead-form" style="display: flex; gap: 10px; flex-wrap: wrap;">
+          <input type="text" id="lead-name" placeholder="Your Name" required style="flex: 1; min-width: 140px; padding: 12px 16px; border-radius: 8px; border: 1px solid rgba(255, 255, 255, 0.3); background: rgba(15, 23, 42, 0.7); color: #fff; font-size: 14px;">
+          <input type="email" id="lead-email" placeholder="Your Best Email" required style="flex: 2; min-width: 200px; padding: 12px 16px; border-radius: 8px; border: 1px solid rgba(255, 255, 255, 0.3); background: rgba(15, 23, 42, 0.7); color: #fff; font-size: 14px;">
+          <button type="submit" id="lead-btn" style="background: linear-gradient(135deg, #2563eb 0%, #0ea5e9 100%); color: #fff; border: none; padding: 12px 24px; border-radius: 8px; font-weight: 700; cursor: pointer; font-size: 14px;">Get Day 1 Guide</button>
+        </form>
+        <div id="lead-status" style="margin-top: 10px; font-size: 13px; display: none;"></div>
+      </div>
+
+      <script>
+        document.getElementById('lead-form').addEventListener('submit', async function(e) {
+          e.preventDefault();
+          const btn = document.getElementById('lead-btn');
+          const status = document.getElementById('lead-status');
+          const name = document.getElementById('lead-name').value;
+          const email = document.getElementById('lead-email').value;
+          btn.disabled = true;
+          btn.innerText = 'Sending...';
+          try {
+            const res = await fetch('/api/subscribe', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({ name, email, source: 'landing_page_hero' })
+            });
+            const data = await res.json();
+            status.style.display = 'block';
+            if (res.ok) {
+              status.style.color = '#34d399';
+              status.innerHTML = '🎉 Success! Check your inbox for the Day 1 Progressive Context Guide.';
+              document.getElementById('lead-form').reset();
+            } else {
+              status.style.color = '#f87171';
+              status.innerText = data.error || 'Failed to subscribe.';
+            }
+          } catch (err) {
+            status.style.display = 'block';
+            status.style.color = '#f87171';
+            status.innerText = 'Network error. Please try again.';
+          }
+          btn.disabled = false;
+          btn.innerText = 'Get Day 1 Guide';
+        });
+      </script>
+
+      <!-- Live Terminal Display -->
+      <div class="terminal-box">
+        <div class="term-header">
+          <div class="term-dot dot-red"></div>
+          <div class="term-dot dot-yellow"></div>
+          <div class="term-dot dot-green"></div>
+          <span style="font-size: 11px; color: #64748b; margin-left: 8px;">bash — npx agent-folders init</span>
+        </div>
+        <div class="term-cmd">$ npx agent-folders init</div>
+        <div class="term-muted">▸ Injecting canonical .ai/ policies (engineering, security, testing)...</div>
+        <div class="term-muted">▸ Generating thin platform adapters: CLAUDE.md, .cursorrules, GEMINI.md, AGENTS.md...</div>
+        <div class="term-cmd">$ npx agent-folders doctor</div>
+        <div class="term-success">✅ [PASS] 6-Level Progressive Context initialized (AGENTS.md: 287 tokens)</div>
+        <div class="term-success">✅ [PASS] 0 broken links in .ai/ store | 0 instruction drifts detected</div>
+        <div class="term-success">🎉 System ready for Claude Code, Cursor, Codex, and Gemini CLI!</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Problem vs Solution Comparison -->
+  <section id="comparison" class="section-py">
+    <div class="container">
+      <div class="section-head">
+        <span class="pill-label">Context Engineering Breakthrough</span>
+        <h2>Why Traditional AI Development Breaks Down</h2>
+        <p>When repositories scale past 5 files, unorganized AI instructions destroy productivity. Here is the architectural difference.</p>
+      </div>
+
+      <div class="comparison-grid">
+        <div class="comp-card comp-bad">
+          <div class="comp-title" style="color: #ef4444;">❌ Traditional AI Repositories</div>
+          <ul class="comp-list">
+            <li><span>⚠️</span> <strong>Bloated Prompt Ingestion:</strong> Ingests 40,000+ tokens on every session start, burning API budgets rapidly.</li>
+            <li><span>⚠️</span> <strong>Instruction Drift:</strong> Conflicting rules in <code>.cursorrules</code> and <code>CLAUDE.md</code> cause agents to overwrite each other's code.</li>
+            <li><span>⚠️</span> <strong>Agent Amnesia:</strong> When context windows fill up, models forget core architectural constraints and invent phantom APIs.</li>
+            <li><span>⚠️</span> <strong>Zero Pre-Commit Verification:</strong> Code is shipped based on LLM claims rather than deterministic test passes.</li>
+          </ul>
+        </div>
+
+        <div class="comp-card comp-good">
+          <span class="comp-badge">UANDA Standard</span>
+          <div class="comp-title" style="color: var(--rj-blue);">✅ With agent-folders Architecture</div>
+          <ul class="comp-list">
+            <li><span>🛡️</span> <strong>Progressive Context Ladder:</strong> Starts with a sub-300-token root pointer. Loads policies only on-demand (70% token cut).</li>
+            <li><span>🛡️</span> <strong>Single Canonical Source of Truth:</strong> One edit in <code>.ai/policies/</code> syncs automatically to Claude, Cursor, and Gemini.</li>
+            <li><span>🛡️</span> <strong>6 Portable Tested Skills:</strong> Pre-built modules for research, planning, surgical coding, debugging, review, and optimization.</li>
+            <li><span>🛡️</span> <strong>Automated Drift & Link Gates:</strong> Built-in CI validator catches broken markdown links and desynced prompt files before git push.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Core Features -->
+  <section id="features" class="section-py" style="background: #ffffff; border-top: 1px solid var(--rj-line); border-bottom: 1px solid var(--rj-line);">
+    <div class="container">
+      <div class="section-head">
+        <span class="pill-label">Enterprise Capabilities</span>
+        <h2>Everything Required to Scale AI-Assisted Engineering</h2>
+        <p>Built from 150+ peer-reviewed software engineering and agentic memory papers.</p>
+      </div>
+
+      <div class="features-grid">
+        <div class="feat-card">
+          <div class="feat-icon">🔌</div>
+          <h3>Model Context Protocol Hub</h3>
+          <p>Pre-configured MCP server bindings for local filesystem sandboxing, Cloudflare edge services, GitHub branch automation, and headless browser testing.</p>
+        </div>
+        <div class="feat-card">
+          <div class="feat-icon">🏗️</div>
+          <h3>10 Project Archetypes</h3>
+          <p>Scaffold full-stack web apps, microservices, autonomous agents, ETL data pipelines, or marketing landing pages in 3 seconds via CLI.</p>
+        </div>
+        <div class="feat-card">
+          <div class="feat-icon">⚡</div>
+          <h3>Cloudflare Edge Deployer</h3>
+          <p>Single-command bash deployment script to package and push any scaffolded microservice straight to Cloudflare Workers edge network.</p>
+        </div>
+        <div class="feat-card">
+          <div class="feat-icon">🧪</div>
+          <h3>Contract-Tested Skills</h3>
+          <p>Every reusable agent capability comes paired with deterministic unit contract tests to guarantee zero hallucinated behavior.</p>
+        </div>
+        <div class="feat-card">
+          <div class="feat-icon">🎧</div>
+          <h3>Terminal Support Oracle</h3>
+          <p>Built-in interactive customer support wizard (<code>npx agent-folders support</code>) giving developers instant guided answers in their shell.</p>
+        </div>
+        <div class="feat-card">
+          <div class="feat-icon">🔒</div>
+          <h3>Zero-Trust Security Policy</h3>
+          <p>Hard boundaries blocking credential leaks, command injections, and unauthorized database drop operations without human sign-off.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Transparent Pricing Ladder -->
+  <section id="pricing" class="section-py">
+    <div class="container">
+      <div class="section-head">
+        <span class="pill-label">Transparent Investment</span>
+        <h2>Choose Your Engineering Tier</h2>
+        <p>From solo indie hackers to high-growth agencies and enterprise engineering organizations.</p>
+      </div>
+
+      <div class="pricing-grid">
+        <!-- Community -->
+        <div class="price-card">
+          <div class="plan-name">Community</div>
+          <div class="plan-desc">For open-source builders and solo developers getting started.</div>
+          <div class="plan-price">$0</div>
+          <ul class="plan-features">
+            <li>✓ Full GitHub Repository</li>
+            <li>✓ Canonical <code>AGENTS.md</code> & <code>.ai/</code></li>
+            <li>✓ 3 Basic Core Skills</li>
+            <li>✓ Architecture Validator CLI</li>
+            <li>✓ Community Discord</li>
+          </ul>
+          <a href="https://github.com/rjbizsolution23-wq/agent-folders/generate" target="_blank" class="btn-plan btn-plan-outline">Clone Free</a>
+        </div>
+
+        <!-- Pro Developer -->
+        <div class="price-card featured">
+          <div class="card-popular">Most Popular</div>
+          <div class="plan-name">Pro Developer</div>
+          <div class="plan-desc">For serious builders using Cursor and Claude Code daily.</div>
+          <div class="plan-price">$97 <span>/ one-time</span></div>
+          <ul class="plan-features">
+            <li>✓ Everything in Community</li>
+            <li>✓ All 10 Project Archetypes</li>
+            <li>✓ 25+ Production Tested Skills</li>
+            <li>✓ Model Context Protocol (MCP) Hub</li>
+            <li>✓ Interactive Support Oracle CLI</li>
+            <li>✓ Cloudflare 1-Click Deployer</li>
+            <li>✓ Lifetime Updates</li>
+          </ul>
+          <a href="https://rjbusinesssolutions.org" target="_blank" class="btn-plan btn-plan-solid">Get Pro Developer</a>
+        </div>
+
+        <!-- Agency / Team -->
+        <div class="price-card">
+          <div class="plan-name">Agency & Team</div>
+          <div class="plan-desc">For software agencies building client applications with AI.</div>
+          <div class="plan-price">$497 <span>/ one-time</span></div>
+          <ul class="plan-features">
+            <li>✓ Everything in Pro</li>
+            <li>✓ White-Label Client Rights</li>
+            <li>✓ Unlimited Seat License</li>
+            <li>✓ Pre-Built Client Portals</li>
+            <li>✓ Priority Engineering Support</li>
+            <li>✓ Custom Adapter Generator</li>
+          </ul>
+          <a href="https://rjbusinesssolutions.org" target="_blank" class="btn-plan btn-plan-outline">Get Agency License</a>
+        </div>
+
+        <!-- Enterprise -->
+        <div class="price-card">
+          <div class="plan-name">Enterprise DFY</div>
+          <div class="plan-desc">Complete custom setup and dedicated agentic architecture.</div>
+          <div class="plan-price">$2,500+</div>
+          <ul class="plan-features">
+            <li>✓ Turnkey Agent Swarm Design</li>
+            <li>✓ Private SOC2/HIPAA Audit Gates</li>
+            <li>✓ Dedicated Private Cloud Deploy</li>
+            <li>✓ Live Team Architecture Workshop</li>
+            <li>✓ 1-on-1 with Rick Jefferson, CEO</li>
+          </ul>
+          <a href="mailto:support@rjbusinesssolutions.org?subject=Enterprise%20Agent-Folders%20Consultation" class="btn-plan btn-plan-outline">Contact Architect</a>
+        </div>
+      </div>
+
+      <!-- Payment & Wire Details -->
+      <div class="wire-box">
+        <div class="wire-col">
+          <h4>Direct Instant Zelle Payment</h4>
+          <p>Instant activation for Pro and Agency licenses with zero platform fees:</p>
+          <div class="wire-val" style="margin-top: 8px;">rjbizsolution23@gmail.com</div>
+          <p style="margin-top: 4px; font-size: 11px;">Memo: [Your Name] + agent-folders Pro/Agency</p>
+        </div>
+        <div class="wire-col">
+          <h4>Domestic / International Bank Wire</h4>
+          <p>For Agency and Enterprise tiers, domestic wires clear within 24 hours:</p>
+          <div class="wire-val" style="margin-top: 8px;">Wells Fargo • Routing: 121000248</div>
+          <p style="margin-top: 4px; font-size: 11px;">Account: RJ Business Solutions | Email receipt to support@rjbusinesssolutions.org</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ Section (AEO & SGE Grounding) -->
+  <section id="faq" class="section-py" style="background: #ffffff; border-top: 1px solid var(--rj-line);">
+    <div class="container">
+      <div class="section-head">
+        <span class="pill-label">Answers to Common Questions</span>
+        <h2>Frequently Asked Questions</h2>
+        <p>Clear, direct answers to help you get the most out of agent-folders.</p>
+      </div>
+
+      <div class="faq-list">
+        <div class="faq-item">
+          <h3>How does agent-folders cut token costs by 70%?</h3>
+          <p>Traditional AI setups force models to ingest entire directory trees and large README files on every prompt. agent-folders enforces a 6-Level Progressive Context Ladder where the initial prompt loads only a sub-300-token pointer (AGENTS.md). Policies, skills, and schemas are retrieved strictly just-in-time when the task requires them.</p>
+        </div>
+        <div class="faq-item">
+          <h3>Does this require switching away from Cursor or Claude Code?</h3>
+          <p>Not at all. agent-folders is not a new editor—it is an architectural standard designed to make Cursor, Claude Code, OpenAI Codex, and Gemini CLI operate with 10x higher reliability. You continue using your favorite tools.</p>
+        </div>
+        <div class="faq-item">
+          <h3>Can I install this into an existing codebase?</h3>
+          <p>Yes. Run <code>npx agent-folders init</code> in your terminal. It safely injects the canonical <code>.ai/</code> configuration and platform adapters without modifying or overwriting your existing code.</p>
+        </div>
+        <div class="faq-item">
+          <h3>What happens when platform rules drift?</h3>
+          <p>You run <code>npx agent-folders sync</code>. This automatically reads your canonical rules from <code>.ai/policies/</code> and regenerates <code>CLAUDE.md</code>, <code>.cursorrules</code>, and <code>GEMINI.md</code> so all AI tools follow the exact same guidelines.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Executive Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div class="logo-text" style="color: #ffffff; margin-bottom: 8px;">RJ Business Solutions</div>
+          <p style="color: #94a3b8; font-size: 13px; line-height: 1.6; margin-bottom: 16px;">
+            1342 NM 333, Tijeras, New Mexico 87059<br>
+            Autonomous Enterprise Architecture & Credit Technology
+          </p>
+          <p style="font-size: 12px; color: #64748b;">
+            Lead Architect: <strong>Rick Jefferson</strong>, CEO<br>
+            Support: <a href="mailto:support@rjbusinesssolutions.org" style="color: #38bdf8;">support@rjbusinesssolutions.org</a>
+          </p>
+        </div>
+        <div class="footer-col">
+          <h4>Architecture</h4>
+          <ul>
+            <li><a href="#features">Progressive Context</a></li>
+            <li><a href="#features">Model Context Protocol</a></li>
+            <li><a href="#features">Platform Adapters</a></li>
+            <li><a href="#features">Cloudflare Deployer</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Community & Code</h4>
+          <ul>
+            <li><a href="https://github.com/rjbizsolution23-wq/agent-folders" target="_blank">GitHub Repository</a></li>
+            <li><a href="https://github.com/rjbizsolution23-wq/agent-folders/issues" target="_blank">Issue Tracker</a></li>
+            <li><a href="https://www.linkedin.com/in/rick-jefferson-314998235" target="_blank">LinkedIn</a></li>
+            <li><a href="https://twitter.com/ricksolutions1" target="_blank">Twitter / X</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Legal & Trust</h4>
+          <ul>
+            <li><a href="https://rjbusinesssolutions.org" target="_blank">Terms of Service</a></li>
+            <li><a href="https://rjbusinesssolutions.org" target="_blank">Privacy Policy</a></li>
+            <li><a href="https://rjbusinesssolutions.org" target="_blank">Security Disclosure</a></li>
+            <li><a href="https://rjbusinesssolutions.org" target="_blank">CROA Compliance</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>&copy; 2026 RJ Business Solutions. All rights reserved. Universal AI-Native Development Architecture.</div>
+        <div style="font-size: 11px; color: #64748b;">
+          RJ Business Solutions provides software and automation technology. Not financial or legal advice.
+        </div>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
