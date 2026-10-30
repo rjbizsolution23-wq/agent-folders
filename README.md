@@ -1,5 +1,15 @@
-# Universal AI-Native Development Architecture (UANDA 2026)
-### Sovereign Cross-Platform Architecture for AI Coding Agents & Human Teams
+# Universal AI-Native Development Architecture (UANDA 2026) — Community Edition
+> **Free Open-Source Package for Builders & Solo Developers**
+> 
+> **Included in this Free Repository:**
+> - ✓ Full GitHub Template Repository
+> - ✓ Canonical `AGENTS.md` (Level 0 Root Pointer) & `.ai/` Store
+> - ✓ 3 Basic Core Skills (`research`, `planning`, `implementation`)
+> - ✓ Architecture Validator CLI (`python3 scripts/validate-architecture.py`)
+> - ✓ Community Discord Access & Multi-Platform Adapters (`CLAUDE.md`, `.cursorrules`, `GEMINI.md`)
+>
+> *(For advanced archetypes, 25+ production skills, automated penetration testing, Stripe nexus, and Cloudflare email drip engine, see the private [Pro & Agency Vault](https://github.com/rjbizsolution23-wq/agent-folders-pro))*
+
 
 UANDA 2026 is an evidence-backed, modular architecture engineered to operate seamlessly across **Claude Code**, **OpenAI Codex**, **Cursor**, **Gemini CLI / Antigravity**, and autonomous agent swarms.
 
